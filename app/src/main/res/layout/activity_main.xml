@@ -11,13 +11,13 @@
         android:id="@+id/cost_of_service"
         android:layout_width="160dp"
         android:layout_height="wrap_content"
-        android:autofillHints=""
         android:hint="@string/cost_of_service"
+
         android:inputType="numberDecimal"
         android:minHeight="48dp"
-        android:textColorHint="@color/switch_color"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+ />
 
     <TextView
         android:id="@+id/service_question"
@@ -79,9 +79,10 @@
         app:layout_constraintTop_toBottomOf="@+id/round_up_switch" />
 
     <TextView
+        android:id  = "@+id/tip_answer"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="@string/tip_amount"
+        tools:text = "Tip Amount: $10"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/calculate_button" />
 </androidx.constraintlayout.widget.ConstraintLayout>
