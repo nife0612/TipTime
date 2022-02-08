@@ -3,23 +3,26 @@ package com.example.tiptime
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.tiptime.databinding.ActivityMainBinding
-import java.lang.Math.ceil
-import java.lang.NumberFormatException
 import java.text.NumberFormat
 
 class MainActivity : AppCompatActivity() {
-    lateinit var binding : ActivityMainBinding
+    private lateinit var binding : ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        binding.calculateButton.setOnClickListener{ formattingIntoTips() }
+        binding.calculateButton.setOnClickListener{ calculateTip() }
     }
 
-    private fun calculateTip() : Double {
+    private fun calculateTip() {
         // Getting the text from TextView and converting to the Double
-        val cost = binding.costOfService.text.toString().toDouble()
+        val cost = binding.costOfService.text.toString().toDoubleOrNull()
+        if(cost == null){
+            displayTip(0.0)
+            return
+        }
+
 
         // Getting the radio group value via ID
         val tipPercentage = when(binding.tipOptions.checkedRadioButtonId){
@@ -29,14 +32,18 @@ class MainActivity : AppCompatActivity() {
         }
 
         // Returning Final tips with or without rounding
-        return when(binding.roundUpSwitch.isChecked) {
+        val tips = when(binding.roundUpSwitch.isChecked) {
             true -> kotlin.math.ceil(cost * tipPercentage)
             else -> cost * tipPercentage
         }
+        displayTip(tips)
+
     }
-    private fun formattingIntoTips(tips : Double = calculateTip()){
+
+    private fun displayTip(tips : Double){
         val formattedTips = NumberFormat.getCurrencyInstance().format(tips)
         binding.tipAnswer.text = getString(R.string.tip_amount, formattedTips)
     }
+
 
 }

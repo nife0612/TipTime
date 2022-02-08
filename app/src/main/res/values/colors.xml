@@ -8,4 +8,12 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="switch_color">#757575</color>
+
+    <color name="gray">#212121</color>
+    <color name="gray_dark">#000000</color>
+    <color name="gray_light">#484848</color>
+    <color name="orange">#ff9800</color>
+    <color name="orange_dark">#db8100</color>
+    <color name="orange_light">#ffc947</color>
+    <color name="white_orange">#ffb74d</color>
 </resources>
