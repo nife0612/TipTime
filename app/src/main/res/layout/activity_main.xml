@@ -7,6 +7,8 @@
     android:padding="16dp"
     tools:context=".MainActivity">
 
+
+
     <EditText
         android:id="@+id/cost_of_service"
         android:layout_width="160dp"
@@ -16,8 +18,7 @@
         android:inputType="numberDecimal"
         android:minHeight="48dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
- />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/service_question"
