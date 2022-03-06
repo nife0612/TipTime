@@ -1,11 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="16dp"
     tools:context=".MainActivity">
+
 
     <androidx.constraintlayout.utils.widget.ImageFilterView
         android:id="@+id/icon_ic_service"
@@ -44,6 +51,7 @@
         android:importantForAccessibility="no"/>
 
     <TextView
+        style="@style/Widget.TipTime.TextView"
         android:id="@+id/service_question"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -117,9 +125,16 @@
 
     <TextView
         android:id="@+id/tip_answer"
+        style="@style/Widget.TipTime.TextView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:textAlignment="viewEnd"
         app:layout_constraintEnd_toEndOf="@+id/calculate_button"
+        app:layout_constraintStart_toStartOf="@+id/calculate_button"
         app:layout_constraintTop_toBottomOf="@+id/calculate_button"
         tools:text="Tip Amount: $10" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>
